@@ -9,6 +9,8 @@ from docx import Document
 from yaml import DocumentEndEvent
 from PIL import Image
 from utils import ngrams
+import nltk
+nltk.download("stopwords")
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -27,6 +29,8 @@ st.title("Welcome to Resume Parser")
 
 image1 =Image.open("assets/resume.png")
 st.image(image1, caption='Online resume Parser ')
+
+
 
 uploaded_file = st.file_uploader("Choose a pdf file or word document file")
 if uploaded_file is not None:
