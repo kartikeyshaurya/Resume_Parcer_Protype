@@ -19,6 +19,8 @@ from sklearn.neighbors import NearestNeighbors
 
 stopw  = set(stopwords.words('english'))
 
+curr_path = os.getcwd()
+
 
 ## Data for ML 
 df =pd.read_csv('job_final.csv') 
@@ -49,7 +51,7 @@ if uploaded_file is not None:
             st.write(key, ':', data[key])
 
     except:
-        data = ResumeParser(filed).get_extracted_data()
+        data = ResumeParser(uploaded_file).get_extracted_data()
 
         st.subheader("Here are your details")
         for key in data:
